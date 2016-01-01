@@ -1,0 +1,13 @@
+#+TITLE: Biblio Web App
+
+* About the app
+The app is a walk through inspired by the packt video course
+[[https://www.packtpub.com/web-development/go-web-development-video][Go for Web Development]].
+
+Code for the App is [[https://github.com/larryprice/go-for-web-dev][at this repo]].
+
+** License
+The material provided by Packt and Larry Price is subject to their own
+licensing terms.
+The work I have done is subject to this [[file:LICENSE][repo's license.]]
+
