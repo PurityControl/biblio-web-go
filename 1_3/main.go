@@ -6,6 +6,10 @@ import (
 	"html/template"
 )
 
+type Page struct {
+	Name string
+}
+
 func main() {
 	templates := template.Must(template.ParseFiles("templates/index.html"))
 	
@@ -14,7 +18,13 @@ func main() {
 	fmt.Println("Hello, Go Web Development!")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r  *http.Request) {
-		if err:= templates.ExecuteTemplate(w, "index.html", nil);
+		// returns "Hello, Gopher" or greets you if a ?name="???"
+		// is passed in with the web request.
+		p := Page{Name: "Gopher"}
+		if name := r.FormValue("name"); name != "" {
+			p.Name = name
+		}
+		if err:= templates.ExecuteTemplate(w, "index.html", p);
 		err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
